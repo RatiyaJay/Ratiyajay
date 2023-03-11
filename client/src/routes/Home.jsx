@@ -1513,7 +1513,7 @@ const Home = () => {
         <Fragment>
             <Landing />
             <FeaturedCategories />
-            
+            <FeaturedItems items={featuredItems} />
            
         </Fragment>
     );
