@@ -4,15 +4,11 @@ const mongoose = require("mongoose")
 
 const itemSchema = mongoose.Schema(
     {
+        id:{
+            type: String,
+            required: true
+        },
         name: {
-            type: String,
-            required: true
-        },
-        category: {
-            type: String,
-            required: true
-        },
-        color: {
             type: String,
             required: true
         },
@@ -20,27 +16,15 @@ const itemSchema = mongoose.Schema(
             type: String,
             required: true
         },
-        description: {
-            type: String,
-            required: true
-        },
         price: {
             type: Number,
             required: true
         },
-        size: {
+       /* image: {
             type: Array,
             required: true
-        },
-        highlights: {
-            type: Array,
-            required: true
-        },
-        detail: {
-            type: String,
-            required: true
-        },
-        image: {
+        },*/
+        quantity: {
             type: Array,
             required: true
         }

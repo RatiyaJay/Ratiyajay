@@ -1,4 +1,4 @@
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router, Outlet } from 'react-router-dom';
 import { Route , Routes} from 'react-router-dom';
 
 import './App.css';
@@ -10,12 +10,13 @@ import ManageAccount from '../components/Account/ManageAccount/ManageAccount';
 import MyAccount from '../components/Account/MyAccount/MyAccount';
 
 import CartItemsProvider from '../Context/CartItemsProvider';
-import Login from '../components/Authentication/Login/Login';
+import Login from '../components/Login/index';
 import Register from '../components/Authentication/Register/Register';
 
 import WishItemsProvider from '../Context/WishItemsProvider';
 
 import SearchProvider from '../Context/SearchProvider';
+import Signup from '../components/Singup';
 
 function App() {
 
@@ -24,10 +25,15 @@ function App() {
       <WishItemsProvider>
         <SearchProvider>
           <Router >
-            <Header />
+            {/* <Header /> */}
             <Routes>
-              <Route index element={<Home />}/>
-              <Route path="/account">
+              <Route index element={<Login />}/>
+              <Route path='/signup' element={<Signup />}/>
+              <Route element={<><Header/>
+              <Outlet/>
+            <Footer />
+              </>}>
+                <Route path="home" element={<Home/>}/>
                 <Route path="me" element={<MyAccount/>}/>
                 <Route path="manage" element={<ManageAccount/>}/>
                 <Route path="login" element={<Login />}/>
@@ -35,7 +41,6 @@ function App() {
                 <Route path="*" element={<Login />}/>
               </Route>
             </Routes>
-            <Footer />
           </Router>
         </SearchProvider>
       </WishItemsProvider>
